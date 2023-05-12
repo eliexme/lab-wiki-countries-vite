@@ -29,8 +29,6 @@ export default function CountryDetails({countriesData}) {
             )
         })}
       </ul>
-
-      
     </div>
   )
 }
