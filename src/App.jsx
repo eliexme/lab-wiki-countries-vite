@@ -65,24 +65,25 @@ function App() {
   }, []); */
 
   return (
-  <div className='App'>
-
-    <Navbar/>
-
-    {countriesData.map((eachCountry)=>{
-      return (
-        <div>
-        <CountriesList eachCountry={eachCountry}/>
-      </div>
-      )
-      
-    })}
-
-    <Routes>
-      <Route path='/:id' element={<CountryDetails countriesData={countriesData}/>} />
-    </Routes>
-    
-  </div>
+    <div className='App'>
+      <Navbar/>
+  
+      {countriesData.length === 0 ? 
+        <p>Loading data...</p> :
+        countriesData.map((eachCountry)=>{
+          return (
+            <div>
+              <CountriesList eachCountry={eachCountry}/>
+            </div>
+          )
+        })
+      }
+  
+      <Routes>
+        <Route path='/:id' element={<CountryDetails countriesData={countriesData}/>} />
+      </Routes>
+    </div>
   )
+  
 }
 export default App
